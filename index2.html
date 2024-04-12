@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Segmentation and Classification</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/style.css"> 
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('http://www.todayifoundout.com/wp-content/uploads/2014/01/salt3.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 90%; /* Adjusted for responsiveness */
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .title {
+            text-align: center;
+            background-color: Gray;
+            color: white;
+            padding: 10px 0;
+            border-radius: 5px;
+            margin: 0;
+            
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap; /* Added to wrap images on smaller screens */
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            border-color:black;
+        }
+
+        .image {
+            text-align: center;
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 20px; /* Added to create space between images */
+            width: 45%; /* Adjusted for smaller screens */
+        }
+
+        h2 {
+            background-color: black;
+            color: white;
+            padding: 5px 0;
+            border-radius: 5px;
+        }
+
+        #f {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: aqua;
+            border-radius: 5px;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: center; /* Adjusted for responsiveness */
+        }
+
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed; /* Adjusted for fixed footer */
+            bottom: 0;
+            width: 100%;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .upload-form input[type="file"] {
+            margin-right: 10px;
+        }
+
+        .upload-form input[type="submit"] {
+            margin-left: 10px;
+        }
+
+        @media screen and (max-width: 768px) { /* Adjusted for smaller screens */
+            .image {
+                width: 90%; /* Adjusted for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+    <div class="main">
+        <h1 class="title">Enhanced Salt Segmentation using DeeplabV3</h1>
+        <div class="container">
+            <form class="upload-form" action="/" method="POST" enctype="multipart/form-data" accept="image/*">
+                <input type="file" name="image">
+                <input type="submit" value="Upload">
+            </form>
+            <div class="image-container">
+                <div class="image">
+                    <h2>Input Image</h2>
+                    <img src="data:image/jpeg;base64,{{ input_image }}" width="256" alt="upload_image"><br><br>
+                </div>
+                <div class="image">
+                    <h2>Segmented Mask</h2>
+                    <img src="data:image/jpeg;base64,{{ mask_image }}" width="256" alt="upload_image">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Enhanced Salt Segmentation using DeeplabV3. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
